@@ -126,7 +126,7 @@ function App() {
   /**
    * 判断是否是获胜棋子
    */
-  const isWinningPiece = (row: number, col: number) => {
+  const isWinningPiece = (row: number, col: number): boolean => {
     return winningLine.some(([r, c]) => r === row && c === col)
   }
 
@@ -173,7 +173,7 @@ function App() {
         </div>
 
         <div className="controls">
-          <button className="btn btn-undo" onClick={undo} disabled={history.length === 0 || winner}>
+          <button className="btn btn-undo" onClick={undo} disabled={history.length === 0 || !!winner}>
             ↩️ 悔棋
           </button>
           <button className="btn btn-reset" onClick={resetGame}>
